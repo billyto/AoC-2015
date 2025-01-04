@@ -14,14 +14,14 @@ fn solve_part2(directions: &Vec<i32>) -> usize {
         .iter()
         .enumerate()
         .fold_while((0, 0), |(acc, _), (idx, &x)| {
-            if acc == -1 {
+            if acc + x == -1 {
                 Done((acc, idx))
             } else {
                 Continue((acc + x, idx))
             }
         })
         .into_inner();
-    last_index
+    last_index + 1 // It's a 1-based floor counting
 }
 
 fn main() -> Result<()> {
@@ -37,4 +37,25 @@ fn main() -> Result<()> {
     println!("Part 1: {}", solve_part1(&directions));
     println!("Part 2: {}", solve_part2(&directions));
     Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_solve_part1() {
+        assert_eq!(solve_part1(&vec![1, -1]), 0);
+        assert_eq!(solve_part1(&vec![1, 1, 1]), 3);
+        assert_eq!(solve_part1(&vec![-1, -1, -1]), -3);
+        assert_eq!(solve_part1(&vec![1, 1, -1, -1]), 0);
+    }
+
+    #[test]
+    fn test_solve_part2() {
+        assert_eq!(solve_part2(&vec![-1]), 1);
+        assert_eq!(solve_part2(&vec![1, 1, -1, -1, -1]), 5);
+        assert_eq!(solve_part2(&vec![-1, -1]), 1);
+        assert_eq!(solve_part2(&vec![-1, 1]), 1);
+    }
 }
