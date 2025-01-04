@@ -25,8 +25,8 @@ fn solve_part2(directions: &Vec<i32>) -> usize {
 }
 
 fn main() -> Result<()> {
-    // Read input from a file in the current day's directory
-    let input_path = "input.txt";
+    // Read the input file that matches the Cargo Package name
+    let input_path = format!("../inputs/{}.txt", env!("CARGO_PKG_NAME"));
     let input_contents: String = read_to_string(input_path).context("Could not read input file")?;
 
     let directions: Vec<i32> = input_contents
