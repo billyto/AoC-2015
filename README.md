@@ -8,8 +8,8 @@ This repository contains my solutions for [Advent of Code 2015](https://adventof
 
 ```
 advent-of-code-2015/
-├── day-01/
-├── day-02/
+├── day01/
+├── day02/
 ├── ...
 ├── Cargo.toml
 ├── LICENSE
