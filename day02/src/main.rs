@@ -1,5 +1,5 @@
 use anyhow::Result;
-use day02::{parse_input, solve_part1};
+use day02::{parse_input, solve_part1, solve_part2};
 
 fn main() -> Result<()> {
     // Read the input file that matches the Cargo Package name
@@ -8,6 +8,6 @@ fn main() -> Result<()> {
     let dimensions = parse_input(input_path)?;
 
     println!("Part 1: {}", solve_part1(&dimensions));
-    // println!("Part 2: {}", solve_part2(&dimensions));
+    println!("Part 2: {}", solve_part2(&dimensions));
     Ok(())
 }
