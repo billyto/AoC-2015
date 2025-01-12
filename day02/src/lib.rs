@@ -35,7 +35,7 @@ pub fn solve_part2(dimensions_list: &Vec<Vec<i32>>) -> i32 {
         .iter()
         .map(|d| {
             let bow_len: i32 = d.iter().fold(1, |acc, side| acc * side);
-            println!("bow len: {:?}", bow_len);
+            //println!("bow len: {:?}", bow_len);
 
             let longest_side: &i32 = d
                 .iter()
@@ -43,13 +43,13 @@ pub fn solve_part2(dimensions_list: &Vec<Vec<i32>>) -> i32 {
                 .max_by_key(|s| **s)
                 //.map(|(index, _)| index)
                 .unwrap();
-            println!("longest side: {:?}", longest_side);
+            //println!("longest side: {:?}", longest_side);
             let ribbon_len1: i32 = d
                 .iter()
                 .filter(|side| side.ne(&longest_side))
                 .map(|short_side| short_side * 2)
                 .sum();
-            println!("ribbon len 1: {:?}", ribbon_len1);
+            //println!("ribbon len 1: {:?}", ribbon_len1);
 
             let mut sorted_lens: Vec<i32> = d.clone();
             sorted_lens.sort();
