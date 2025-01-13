@@ -30,7 +30,7 @@ pub fn solve_part1(dimensions_list: &Vec<Vec<i32>>) -> i32 {
 }
 
 pub fn solve_part2(dimensions_list: &Vec<Vec<i32>>) -> i32 {
-    let lenghts: Vec<i32> = dimensions_list
+    let lengths: Vec<i32> = dimensions_list
         .iter()
         .map(|d| {
             let bow_len: i32 = d.iter().fold(1, |acc, side| acc * side);
@@ -43,7 +43,7 @@ pub fn solve_part2(dimensions_list: &Vec<Vec<i32>>) -> i32 {
         })
         .collect::<Vec<i32>>();
 
-    lenghts.iter().sum()
+    lengths.iter().sum()
 }
 
 #[cfg(test)]
