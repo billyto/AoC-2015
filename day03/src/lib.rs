@@ -30,7 +30,7 @@ pub fn solve_part1(directions: &Vec<char>) -> i32 {
             '<' => x -= 1,
             '>' => x += 1,
             'v' => y -= 1,
-            _ => panic!("Unknown direction panic!"),
+            _ => panic!("Unknown direction panic: {}", c),
         };
         visited_houses.insert((x, y));
     });
