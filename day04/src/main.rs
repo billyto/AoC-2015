@@ -7,7 +7,7 @@ fn main() -> Result<()> {
 
     let path = parse_input(input_path)?;
 
-    //println!("Part 1: {}", solve_part1(&path));
+    println!("Part 1: {}", solve_part1(&path));
     println!("Part 2: {}", solve_part2(&path));
     Ok(())
 }
