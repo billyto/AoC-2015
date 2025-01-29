@@ -1,14 +1,6 @@
 use anyhow::{Context, Result};
 use std::{collections::HashSet, fs::read_to_string, i32};
 
-// #[derive(Debug)]
-// pub struct House {
-//     north: Option<usize>,
-//     south: Option<usize>,
-//     west: Option<usize>,
-//     east: Option<usize>,
-// }
-
 pub fn parse_input(input_path: String) -> Result<Vec<char>, anyhow::Error> {
     let input_contents: String = read_to_string(input_path).context("Could not read input file")?;
     let directions: Vec<char> = input_contents.chars().collect();
