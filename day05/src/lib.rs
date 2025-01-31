@@ -1,6 +1,6 @@
 use anyhow::{Context, Result};
 use regex::Regex;
-use std::{fs::read_to_string, i32};
+use std::fs::read_to_string;
 
 pub fn parse_input(input_path: String) -> Result<Vec<String>, anyhow::Error> {
     let input_contents: String = read_to_string(input_path).context("Could not read input file")?;
@@ -24,8 +24,34 @@ pub fn solve_part1(strings: &Vec<String>) -> usize {
         .count()
 }
 
-pub fn solve_part2(strings: &Vec<String>) -> i32 {
-    42
+fn has_repeated_pair(s: &str) -> bool {
+    let chars: Vec<char> = s.chars().collect();
+
+    for i in 0..chars.len() - 1 {
+        let pair = &s[i..i + 2];
+        if s[i + 2..].contains(pair) {
+            return true;
+        }
+    }
+    false
+}
+
+fn has_letter_sandwich(s: &str) -> bool {
+    let chars: Vec<char> = s.chars().collect();
+    for i in 0..chars.len() - 2 {
+        if chars[i] == chars[i + 2] {
+            return true;
+        }
+    }
+    false
+}
+
+// TODO: regex would need backreferences which are not supported
+pub fn solve_part2(strings: &Vec<String>) -> usize {
+    strings
+        .iter()
+        .filter(|&s| has_repeated_pair(s) && has_letter_sandwich(s))
+        .count()
 }
 
 #[cfg(test)]
@@ -45,7 +71,6 @@ mod tests {
         assert_eq!(solve_part1(&input), 2);
     }
 
-    // You can also test individual strings if you want to be more specific
     #[test]
     fn test_individual_strings() {
         assert_eq!(solve_part1(&vec!["ugknbfddgicrmopn".to_string()]), 1);
@@ -53,5 +78,16 @@ mod tests {
         assert_eq!(solve_part1(&vec!["jchzalrnumimnmhp".to_string()]), 0);
         assert_eq!(solve_part1(&vec!["haegwjzuvuyypxyu".to_string()]), 0);
         assert_eq!(solve_part1(&vec!["dvszwmarrgswjxmb".to_string()]), 0);
+    }
+
+    #[test]
+    fn test_solve_part2() {
+        let input = vec![
+            "qjhvhtzxzqqjkmpb".to_string(),
+            "xxyxx".to_string(),
+            "uurcxstgmygtbstg".to_string(),
+            "ieodomkazucvgmuy".to_string(),
+        ];
+        assert_eq!(solve_part2(&input), 2);
     }
 }
