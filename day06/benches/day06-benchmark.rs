@@ -4,7 +4,7 @@ use day06::{parse_input, solve_part1, solve_part2};
 fn benchmark_part1(c: &mut Criterion) {
     let input_path = format!("../inputs/{}.txt", env!("CARGO_PKG_NAME"));
     let parsed = parse_input(input_path).unwrap();
-    c.bench_function("day 05 - part 1", |b| {
+    c.bench_function("day 06 - part 1", |b| {
         b.iter(|| solve_part1(black_box(&parsed)))
     });
 }
@@ -12,13 +12,13 @@ fn benchmark_part1(c: &mut Criterion) {
 fn benchmark_part2(c: &mut Criterion) {
     let input_path = format!("../inputs/{}.txt", env!("CARGO_PKG_NAME"));
     let parsed = parse_input(input_path).unwrap();
-    c.bench_function("day 05 - part 2", |b| {
+    c.bench_function("day 06 - part 2", |b| {
         b.iter(|| solve_part2(black_box(&parsed)))
     });
 }
 
 fn benchmark_full_solution(c: &mut Criterion) {
-    let mut group = c.benchmark_group("day 05 - full solution");
+    let mut group = c.benchmark_group("day 06 - full solution");
     //let input = include_str!("../../inputs/day01.txt");
     let input_path = format!("../inputs/{}.txt", env!("CARGO_PKG_NAME"));
     let input_path = input_path.as_str();
