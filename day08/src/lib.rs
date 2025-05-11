@@ -18,7 +18,7 @@ pub fn solve_part1(strings: &[String]) -> usize {
 
 // Helper functions
 fn code_length(s: &str) -> usize {
-    // Return the original code lengthi
+    // Return the original code length
     s.len()
 }
 
