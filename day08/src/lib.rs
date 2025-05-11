@@ -77,7 +77,7 @@ pub fn solve_part2(strings: &[String]) -> usize {
 }
 
 fn encoded_length(s: &str) -> usize {
-    // encode the code representation as a new string and get the number of charaters of the resulting string
+    // encode the code representation as a new string and get the number of characters of the resulting string
     // Start with 2 for the enclosing quotes
     let mut count = 2;
 
