@@ -42,7 +42,7 @@ fn look_and_say(string: &String) -> String {
 
     let mut current_char = chars[0];
     let mut char_count = 0;
-    let mut chain = String::with_capacity(string.len() * 0.3 as usize);
+    let mut chain = String::with_capacity((string.len() as f64 * 0.3).ceil() as usize);
 
 
     for c in chars {
