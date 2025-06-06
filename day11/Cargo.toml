@@ -10,6 +10,6 @@ itertools = { workspace = true }
 [dev-dependencies]
 criterion = { version = "0.5", features = ["html_reports"] }
 
-#[[bench]]
-#name = "day11-benchmark"
-#harness = false
+[[bench]]
+name = "day11-benchmark"
+harness = false
