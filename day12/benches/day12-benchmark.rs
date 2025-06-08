@@ -12,13 +12,13 @@ fn benchmark_part1(c: &mut Criterion) {
 fn benchmark_part2(c: &mut Criterion) {
     let input_path = format!("../inputs/{}.txt", env!("CARGO_PKG_NAME"));
     let parsed = parse_input(input_path).unwrap();
-    c.bench_function("day 09 - part 2", |b| {
+    c.bench_function("day 12 - part 2", |b| {
         b.iter(|| solve_part2(black_box(&parsed)))
     });
 }
 
 fn benchmark_full_solution(c: &mut Criterion) {
-    let mut group = c.benchmark_group("day 09 - full solution");
+    let mut group = c.benchmark_group("day 12 - full solution");
     //let input = include_str!("../../inputs/day01.txt");
     let input_path = format!("../inputs/{}.txt", env!("CARGO_PKG_NAME"));
     let input_path = input_path.as_str();
